@@ -1,12 +1,12 @@
 import React from "react"
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native"
+import { StyleSheet, View, Text, Alert, TouchableOpacity } from "react-native"
 import { PRIMARY_GREEN } from "../styles/styles"
 // import { PRIMARY_GREY_BACKGROUND, PRIMARY_WHITE, PRIMARY_GREEN, PRIMARY_BLACK } from "../../../assets/styles/styles"
 
 
 export const BtnGreen = (props) => {
     return (
-        <TouchableOpacity style={[styles.btnSize, { backgroundColor: PRIMARY_GREEN }]} >
+        <TouchableOpacity onPress={() => Alert.alert(props.title)} style={[styles.btnSize, { backgroundColor: PRIMARY_GREEN }]} >
             <Text style={styles.textBtn}>
                 {props.title}
         </Text>

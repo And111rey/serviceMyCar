@@ -7,6 +7,7 @@ import { TutorialMainScreenComponents } from "./src/components/tutorialScreens/T
 import { SignUpScreen } from "./src/components/SignUpScreens/SignUpScreen"
 import { ScreenLogInPhoneNumber } from "./src/components/SignUpScreens/ScreenLogInPhoneNumber"
 import { ScreenNumberVerify } from "./src/components/SignUpScreens/ScreenNumberVerify"
+import { ScreenAddAdress } from "./src/components/SignUpScreens/ScreenAddAdress"
 
  
 
@@ -15,7 +16,8 @@ const App = ()  => {
       // <TutorialMainScreenComponents/>
     // <SignUpScreen/>
     // < ScreenLogInPhoneNumber />
-    <ScreenNumberVerify/>
+    // <ScreenNumberVerify/>
+    <ScreenAddAdress/>
   ); 
 };
 
