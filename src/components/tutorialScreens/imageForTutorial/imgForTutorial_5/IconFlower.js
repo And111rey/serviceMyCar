@@ -13,7 +13,7 @@ import Svg, {
     Mask,
 } from 'react-native-svg';
 
-export const FlowerImg = () => {
+export const IconFlower = () => {
     return (
         <Svg width="89" height="89" viewBox="0 0 89 89" fill="none" strokeWidth="3"   xmlns="http://www.w3.org/2000/svg">
             <Path d="M48.7857 26.4603C46.5452 30.6471 44.5 34 44.5 34C44.5 34 34.5 17.6056 34.5 12.0533C34.5 6.50101 38.9772 2 44.5 2C50.0228 2 54.5 6.50101 54.5 12.0533C54.5 14.0127 53.2546 17.3223 51.6429 20.7852" stroke="#252525" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />

@@ -3,16 +3,19 @@
 import React from 'react';
 import {SafeAreaView,StyleSheet,ScrollView, View,Text, StatusBar} from 'react-native';
 
-import {TutorialMainScreenComponents} from "./src/components/tutorialScreens/TutorialMainScreen"
+import { TutorialMainScreenComponents } from "./src/components/tutorialScreens/TutorialMainScreen"
+import { SignUpScreen } from "./src/components/SignUpScreens/SignUpScreen"
+import { ScreenLogInPhoneNumber } from "./src/components/SignUpScreens/ScreenLogInPhoneNumber"
+import { ScreenNumberVerify } from "./src/components/SignUpScreens/ScreenNumberVerify"
 
  
 
 const App = ()  => {
   return (
-    // <View style={styles.conteiner}>
-      <TutorialMainScreenComponents/>
-
-    // </View>
+      // <TutorialMainScreenComponents/>
+    // <SignUpScreen/>
+    // < ScreenLogInPhoneNumber />
+    <ScreenNumberVerify/>
   ); 
 };
 

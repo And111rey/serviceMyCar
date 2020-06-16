@@ -1,22 +1,94 @@
 import React from "react"
-import { StyleSheet, View, Text, StatusBar, TouchableOpacity, ScrollView, Alert } from "react-native"
-import { PRIMARY_GREEN, PRIMARY_FONT_COLOR, PRIMARY_BLACK_BTN } from "../../styles/styles";
+import { StyleSheet, View, Text, StatusBar, TouchableOpacity, ScrollView, FlatList, Alert, Dimensions } from "react-native"
+import { PRIMARY_GREEN, PRIMARY_FONT_COLOR, PRIMARY_BLACK_BTN } from '../../assets/styles/styles';
 
 // import { ToyotaImg } from "./imageForTutorial1/ToyotaLC"
 import { TutorialVector } from "./imageForTutorial/TutorialVector"
-import TototialStackNavigation from "../StackNavigation/TutorialStack"
+// import TototialStackNavigation from "../StackNavigation/TutorialStack"
 
-// import { TutorialTabsNavagation } from "../StackNavigation/TutorialStack"
+import { TutorialScrolls } from "./TutorialScrolls"
 
-import { Tutorial1 } from "./Tutorial1"
-import { Tutorial2 } from "./Tutorial2"
-import { Tutorial3 } from "./Tutorial3"
-import { Tutorial4 } from "./Tutorial4"
-import { Tutorial5 } from "./Tutorial5"
-import { Tutorial6 } from "./Tutorial6"
+import { ImgCar } from './imageForTutorial/imgForTutorial_1/ImgCar'
+import { IconTutorial2 } from "./imageForTutorial/imgForTutorial_2/IconTutorial2"
+import { IconTutorial3 } from "./imageForTutorial/imgForTutorial_3/IconTutorial3"
+import { IconCarTutorial } from "./imageForTutorial/imgForTutorial_4/CarImg"
+import { IconFlower } from "./imageForTutorial/imgForTutorial_5/IconFlower"
+import { IconPresent } from './imageForTutorial/imgForTutorial_6/IconPresent' 
+
+
+
+
+const stylesForLittleCircle = {
+    backgroundColor: "white",
+    position: "relative",
+    justifyContent: "center",
+    justifyContent: "space-around",
+    paddingTop: 42,
+    paddingBottom: 42,
+    alignItems: "center",
+    alignSelf: "center",
+    marginTop: 39,
+    width: 142,
+    height: 142,
+    borderRadius: 142,
+}
+
+const stylesForBigCircle = {
+    marginTop: 0,
+    backgroundColor: "white",
+    alignSelf: "center",
+    width: 220,
+    height: 220,
+    borderRadius: 120,
+    // position: 'relative'
+}
+
+const DATA = [
+    {
+        
+        icon:  ImgCar,
+        firstText: "Service and Reapir" ,
+        secondText: "Vestibulum, ut bibendum est eget eu non, consequat, at sodales.",
+        whiteCircle: stylesForBigCircle
+    }, 
+    {
+        icon: IconTutorial2,
+        firstText: "Service and Reapir",
+        secondText: "Purus mattis adipiscing suspendisse in enim tristique bibendum at euismod.",
+        whiteCircle: stylesForLittleCircle,
+    },
+    {
+        icon: IconTutorial3,
+        firstText: "Trusted Gatages",
+        secondText: "Ultrices mattis tempus ante massa lectus.",
+        whiteCircle: stylesForLittleCircle,
+    },
+    {
+        icon: IconCarTutorial,
+        firstText: "Free Pick Up",
+        secondText: " Ut lacinia orci mi sagittis, consequat.",
+        whiteCircle: stylesForLittleCircle,
+    },
+    {
+        icon: IconFlower,
+        firstText: "Peace of Mind ",
+        secondText: " Ut lacinia orci mi sagittis, consequat.",
+        whiteCircle: stylesForLittleCircle,
+    },
+    {
+        icon: IconPresent,
+        firstText: "Register Now ",
+        secondText: "Lobortis nunc amet, nulla porttitor mauris dignissim volutpat.",
+        whiteCircle: stylesForLittleCircle,
+    }
+]
+
+
 
 
 export const TutorialMainScreenComponents = () => {
+
+
     return (
 
         <View style={styles.content}>
@@ -39,21 +111,16 @@ export const TutorialMainScreenComponents = () => {
 
 
             <View style={styles.mainBlock}>
-                {/* <ScrollView horizontal={true}
-                // pagingEnabled={true} 
-                showsHorizontalScrollIndicator={false}
-                alwaysBounceVertical={true}
-                > 
-                < Tutorial1 /> 
-                < Tutorial2 />
-                < Tutorial3 />
-                < Tutorial4 />
-                < Tutorial5 />
-                < Tutorial6 />
-                </ScrollView>  */}
-                
-                <TototialStackNavigation/>
-                
+            <ScrollView horizontal={true}>
+                {
+                    DATA.map((el, i) => {
+                        return <TutorialScrolls key={i} icon={el.icon} whiteCircle={el.whiteCircle} firstText={el.firstText} secondText={el.secondText} />
+                    })
+                }
+            </ScrollView>
+            
+            {/* < IconTutorial2 /> */}
+
             </View>
 
 
@@ -85,8 +152,10 @@ const styles = StyleSheet.create({
     },
 
     mainBlock: {
-        // backgroundColor: "blue"
-        width: "100%"
+        // backgroundColor: "blue",
+        width: Dimensions.get("window").width
+        // flexGrow: 1
+
     },
     blockWithBtn: {
         // backgroundColor: "red",

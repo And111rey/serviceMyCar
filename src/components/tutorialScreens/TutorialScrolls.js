@@ -1,44 +1,40 @@
 import React from "react"
-import { View, Text, StyleSheet, TouchableOpacity,  } from "react-native"
-import { PRIMARY_GREEN, PRIMARY_FONT_COLOR, PRIMARY_BLACK_BTN } from "../../assets/styles/styles";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
+import { PRIMARY_GREEN, PRIMARY_FONT_COLOR, PRIMARY_BLACK_BTN } from '../../assets/styles/styles';
+
+import { IconTutorial2 } from "./imageForTutorial/imgForTutorial_2/IconTutorial2"
 
 
-import { ToyotaImg } from "./imageForTutorial/imgForTutorial_1/ToyotaLC"
 
 
-export const Tutorial1 = ({ navigation }) => {
-        // setTimeout(()=>{navigation.navigate('Tutorial2')}, 3000)
+export const TutorialScrolls = ({ icon, firstText, secondText, whiteCircle }) => {
     return (
 
         <View style={styles.content}>
-            <TouchableOpacity activeOpacity={1}
-                bounces={false}
-                
-                // onPress={() => navigation.navigate("Tutorial2")}
-                >
+            <TouchableOpacity  >
 
-                <View style={styles.whiteRound}>
-                    <View style={styles.carImg}>
-                        < ToyotaImg />
+                <View style={styles.topBlock}>
+                    <View style={whiteCircle}>
+                        {icon()}
                     </View>
-
                 </View>
 
                 <View style={styles.bottomBlock}>
                     <View style={styles.text2}>
-                        <Text style={[styles.nameAppText, { textAlign: "center" }]}>Service and Reapir</Text>
+                        <Text style={[styles.nameAppText, { textAlign: "center" }]}>{firstText}</Text>
                     </View>
+
 
                     <View style={styles.blockWithlittleText}>
                         <Text style={styles.littleText}>
-                            Vestibulum, ut bibendum est eget eu non, consequat, at sodales
-                    </Text>
+                            {secondText}
+                        </Text>
                     </View>
 
 
                     <View style={styles.sliderIndc}>
-                        <View style={styles.indecElemOn}></View>
                         <View style={styles.indecElemOff}></View>
+                        <View style={styles.indecElemOn}></View>
                         <View style={styles.indecElemOff}></View>
                         <View style={styles.indecElemOff}></View>
                         <View style={styles.indecElemOff}></View>
@@ -54,24 +50,42 @@ export const Tutorial1 = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     content: {
-        backgroundColor: PRIMARY_GREEN,
-        // flexGrow: 1
+        backgroundColor: PRIMARY_GREEN
     },
-    whiteRound: {
-        marginTop: 0,
-        backgroundColor: "white",
-        alignSelf: "center",
-        width: 220,
-        height: 220,
-        borderRadius: 120,
+    topBlock: {
+        // height: 220,
+        // backgroundColor: "red"
     },
-
     bottomBlock: {
         height: 136,
         justifyContent: "space-between",
         position: "relative"
     },
 
+
+
+    // whiteRound: {
+    //     backgroundColor: "white",
+    //     position: "relative",
+    //     justifyContent: "center",
+    //     justifyContent: "space-around",
+    //     paddingTop: 42,
+    //     paddingBottom: 42,
+    //     alignItems: "center",
+    //     alignSelf: "center",
+    //     marginTop: 39,
+    //     width: 142,
+    //     height: 142,
+    //     borderRadius: 142,
+    // },
+    // gteenLine: {
+    //     // position: "absolute",
+    //     backgroundColor: PRIMARY_GREEN,
+    //     width: 27,
+    //     height: 3,
+    //     marginTop: 55
+
+    // },
     nameAppText: {
         fontFamily: "DM Sans",
         fontStyle: 'normal',
@@ -81,11 +95,6 @@ const styles = StyleSheet.create({
         alignItems: "flex-end",
         color: PRIMARY_FONT_COLOR
     },
-    carImg: {
-        width: 260,
-        height: 195,
-        alignSelf: "center",
-    },
     text2: {
         marginTop: 5,
         height: 39,
@@ -94,12 +103,9 @@ const styles = StyleSheet.create({
     },
     blockWithlittleText: {
         marginTop: 7,
-        marginRight: 70,
-        marginLeft: 70,
-        height: 36,
-        width: 224,
-        // backgroundColor: "grey",
-
+        marginRight: 75,
+        marginLeft: 75,
+        width: 224
     },
     littleText: {
         fontFamily: "DM Sans",
@@ -108,13 +114,13 @@ const styles = StyleSheet.create({
         fontSize: 14,
         lineHeight: 18,
         textAlign: "center",
-        color: PRIMARY_FONT_COLOR,
+        color: PRIMARY_FONT_COLOR
     },
     sliderIndc: {
         color: PRIMARY_FONT_COLOR,
         textAlign: "center",
         flexDirection: "row",
-        alignSelf: "center",
+        alignSelf: "center"
     },
     indecElemOn: {
         height: 5,

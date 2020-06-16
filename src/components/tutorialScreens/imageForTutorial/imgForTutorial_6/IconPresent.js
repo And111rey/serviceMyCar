@@ -13,7 +13,7 @@ import Svg, {
     Mask,
 } from 'react-native-svg';
 
-export const PresentImg = () => {
+export const IconPresent = () => {
     return (
         <Svg width="81" height="87" viewBox="0 0 81 87" fill="none" strokeWidth="3"  xmlns="http://www.w3.org/2000/svg">
             <Circle cx="40.5" cy="62.999" r="5" fill="#0FB94D" />
