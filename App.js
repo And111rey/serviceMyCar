@@ -8,6 +8,7 @@ import { SignUpScreen } from "./src/components/SignUpScreens/SignUpScreen"
 import { ScreenLogInPhoneNumber } from "./src/components/SignUpScreens/ScreenLogInPhoneNumber"
 import { ScreenNumberVerify } from "./src/components/SignUpScreens/ScreenNumberVerify"
 import { ScreenAddAdress } from "./src/components/SignUpScreens/ScreenAddAdress"
+import { ScreenSelectFromMap } from "./src/components/SignUpScreens/ScreenSelectFromMap"
 
  
 
@@ -17,7 +18,8 @@ const App = ()  => {
     // <SignUpScreen/>
     // < ScreenLogInPhoneNumber />
     // <ScreenNumberVerify/>
-    <ScreenAddAdress/>
+    // <ScreenAddAdress/>
+    <ScreenSelectFromMap/>
   ); 
 };
 

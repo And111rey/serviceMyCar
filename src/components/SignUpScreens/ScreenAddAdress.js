@@ -1,16 +1,13 @@
 import React, { useState } from "react"
 import { View, StyleSheet, StatusBar, Text, Picker, ScrollView, TouchableOpacity, Alert } from "react-native"
 import { PRIMARY_GREY_BACKGROUND, PRIMARY_WHITE, PRIMARY_GREEN, PRIMARY_BLACK } from "../../assets/styles/styles"
-import VirtualKeyboard from 'react-native-virtual-keyboard'
 
 import { Vector } from "./icons/Vector"
-import { NumberInputs } from "./antoms/NumberInputs"
-import { ButtonSIGNUP } from "./antoms/ButtonSIGNUP"
-import { ButtonSignUpBlack } from "./antoms/ButtonSignUpBlack"
 import { BtnGreen } from "../../assets/buttons/BtnGreen"
-import { ForLittleInpt } from "./antoms/ForLittleInpt"
+import { BtnBlack } from "../../assets/buttons/BtnBlack"
 import { TextInput } from "react-native-gesture-handler"
-// import { PRIMARY_GREY_BACKGROUND } from "../../assets/styles/styles"
+import { Pointer } from "./icons/Pointer"
+
 
 const DATA = [
     { id: 0, name: "Украина", city: ["Киев", "Одесса", "Хмельницкий", "Харьков"] },
@@ -26,14 +23,16 @@ export const ScreenAddAdress = (props) => {
     console.log("..выбраная страна...", selectedValue)
 
     const getCountry = () => {
-        let counrty = DATA[selectedValue.itemIndex - 1]
-       
+        const index = selectedValue.itemIndex
+        if (index) {
+            let counrty = DATA[index - 1]
+            
             let cities = Object.values(counrty)
             console.log("..выбранные города..", cities[2])
             return cities[2]
-       
-      
-        
+        } else {
+            return false
+        }
     }
     
     console.log("...TOWN......", city)
@@ -57,6 +56,7 @@ export const ScreenAddAdress = (props) => {
                             // mode="dropdown"
                             selectedValue={selectedValue.itemValue}
                             onValueChange={(itemValue, itemIndex) => {
+                                console.log("---Ты выбрал индекс", itemIndex)
                                 setSelectedValue({ itemValue, itemIndex })
                             }
                             }>
@@ -80,7 +80,7 @@ export const ScreenAddAdress = (props) => {
                             }>
                                 <Picker.Item label="Empty" value="Empty" />
                                 {
-                                    selectedValue? getCountry().map((el) =>{
+                                    getCountry()? getCountry().map((el) =>{
                                         let i = 0
                                         return <Picker.Item key={i+1}label={el} value={el} />
                                     }):<Picker.Item label="Empty" value="Empty" />     
@@ -90,13 +90,21 @@ export const ScreenAddAdress = (props) => {
                     </View>
                     <TextInput style={styles.searchObjectStyles}/>
 
-
+                    <TextInput style={styles.searchObjectStyles} placeholder="Building number / name"/>
+                    <TextInput style={styles.searchObjectStyles} placeholder="Additional instructions"/>
+                    
+                    < BtnBlack pointer={< Pointer />} title="SELECT ON MAP" />
+                    < BtnGreen title="SAVE MY ADRRESS" />
+                    <Text style={styles.littleText} >You can add more addresses from the menu section later</Text>
 
 
          
 
                 </View>
             </View>
+
+
+        
         </ScrollView>
     )
 }
@@ -157,8 +165,16 @@ const styles = StyleSheet.create({
             height: 50,
             width: 300,
             borderRadius: 8,
-            marginTop: 15
+            marginTop: 10
+    },
+    littleText: {
+        marginTop: 5,
+        textAlign: "center",
+        lineHeight: 13,
+        fontSize: 10,
+        opacity: 0.5
     }
+
     
 
 
