@@ -24,7 +24,7 @@ export const ScreenSelectFromMap = (props) => {
 
                 <StatusBar backgroundColor={PRIMARY_GREY_BACKGROUND} barStyle="dark-content" />
            
-            <View style={styles.map}>
+            {/* <View style={styles.map}>
                 <MapView
                     initialRegion={{
                         latitude: 37.78825,
@@ -35,7 +35,7 @@ export const ScreenSelectFromMap = (props) => {
                 >
                 
                 </MapView>
-            </View>
+            </View> */}
 
 
 
